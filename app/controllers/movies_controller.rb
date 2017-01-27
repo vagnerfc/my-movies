@@ -56,5 +56,24 @@ class MoviesController < ApplicationController
 
   end
 
+  def delete
+  begin
+    id = params["id"]
+    @movie = Movie.find (id)
+
+
+      if  @movie.destroy
+        redirect_to action: :index
+      else
+        redirect_to action: :show, id: @movie.id
+    end
+    rescue ActiveRecord::RecordNotFound
+      @movie = nil
+      rende file: "#{Rails.root}/public/404.htmll"
+    end
+
+  end
+
+
 
 end
