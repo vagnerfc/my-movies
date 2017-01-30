@@ -5,6 +5,7 @@
     <tr>
       <th>Title</th>
       <th>Release</th>
+      <th>Average Score</th>
       <th>X</th>
     </tr>
   </thead>
@@ -13,6 +14,7 @@
       <tr>
         <td><%= link_to(movie.title, "/movies/#{movie.id}/edit") %></td>
         <td><%= movie.release_date %></td>
+        <td> <%= movie.average_score %></td>
         <td><%= link_to("X", "/movies/#{movie.id}/delete") %></td>
       </tr>
     <% end %>

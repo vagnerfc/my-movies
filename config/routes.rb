@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/movies' => 'user_movies#index'
+
   devise_for :users
   resources :directors
   resources :actors
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
   get 'movies/:id/delete' => 'movies#delete'
 
   root 'movies#index'
+
+  post 'movies/:id/classifications' => 'movies#create_classification'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
