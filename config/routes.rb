@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :directors
+  resources :actors
   get 'movies' => 'movies#index'
 
   get 'movies/new' => 'movies#new'
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
   put 'movies/:id/' => 'movies#update'
 
   get 'movies/:id/delete' => 'movies#delete'
+
+  root 'movies#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
